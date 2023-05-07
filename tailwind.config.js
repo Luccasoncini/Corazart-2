@@ -22,6 +22,7 @@ module.exports = {
         purple_300: "#BE87D8",
         green: "#2AA81A",
         blue_900: "#41416C",
+        dark_purple_900: "#2e2e59",
         gray_300: "#919191"
       }
     }

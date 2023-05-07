@@ -3,11 +3,14 @@ import { Link, NavLink, useLocation } from "react-router-dom"
 import { LogoCorazartIcon } from "../assets/svg/logo"
 import { useMenu } from "../hooks/useMenu"
 import { ContatoIcon } from "../assets/svg/contato"
+import { useGifState } from "../hooks/useGifState"
+import { motion } from "framer-motion"
 
 export const Header = () => {
+  const { gifFinished, setGifFinished } = useGifState()
   const { isMenuOpened, setIsMenuOpened } = useMenu()
   const location = useLocation()
-  const [isHomePage, setIsHomePage] = useState(false)
+  const [isHomePage, setIsHomePage] = useState(true)
 
   useEffect(() => {
     if (location.pathname === "/home" || location.pathname === "/") {
@@ -41,13 +44,25 @@ export const Header = () => {
     }
   ]
 
+  const animation = {
+    y: [-200, 100, 0],
+    opacity: 1,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20
+    }
+  }
+
   return (
     <header
       className={`flex justify-between items-center fixed top-0 left-0 h-[75px] w-full px-4 z-30 lg:h-auto lg:py-5 lg:px-20
       ${isHomePage ? (isMenuOpened ? "bg-purple-900" : "bg-transparent") : "bg-purple-900"}`}
     >
       <Link to="/home" className="w-[150px] lg:w-[235px]">
-        <LogoCorazartIcon />
+        <motion.span initial={{ y: -200, opacity: 0 }} animate={gifFinished ? animation : ""} className="block">
+          <LogoCorazartIcon />
+        </motion.span>
       </Link>
 
       <div className="lg:w-[60%] lg:h-full lg:flex lg:justify-between lg:items-center">
@@ -88,7 +103,11 @@ export const Header = () => {
             <ul className="lg:flex lg:justify-center lg:items-center lg:w-full lg:h-full gap-6">
               {menuLinks.map(({ texto, link }) => {
                 return (
-                  <li key={texto + link}>
+                  <motion.li
+                    key={texto + link}
+                    initial={{ y: -200, opacity: 0 }}
+                    animate={gifFinished ? animation : ""}
+                  >
                     <NavLink
                       onClick={() => onClickLink()}
                       to={link}
@@ -97,19 +116,19 @@ export const Header = () => {
                     >
                       {texto}
                     </NavLink>
-                  </li>
+                  </motion.li>
                 )
               })}
 
-              <li>
+              <motion.li initial={{ y: -200, opacity: 0 }} animate={gifFinished ? animation : ""}>
                 <NavLink
                   onClick={() => onClickLink()}
                   to="/contact"
-                  className="bg-white px-8 py-2 flex justify-center items-center rounded-2xl border border-white ease-in duration-200 hover:bg-transparent"
+                  className="bg-white px-8 py-2 flex justify-center text-dark_purple_900 items-center rounded-2xl border border-white ease-in duration-200 hover:bg-transparent hover:text-white"
                 >
                   <ContatoIcon />
                 </NavLink>
-              </li>
+              </motion.li>
             </ul>
           </nav>
         </div>
