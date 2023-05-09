@@ -23,7 +23,10 @@ module.exports = {
         green: "#2AA81A",
         blue_900: "#41416C",
         dark_purple_900: "#2e2e59",
-        gray_300: "#919191"
+        gray_100: "#efefef",
+        gray_300: "#919191",
+        gray_500: "#CECDDB",
+        black_100: "#6c6c6cba"
       }
     }
   },

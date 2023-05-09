@@ -5,3 +5,8 @@
 .h-navigation {
   height: calc(100% - 75px);
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
