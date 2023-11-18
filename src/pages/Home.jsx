@@ -1,43 +1,26 @@
-import React from "react"
-import CorazartGif from "../assets/gif/corazart.gif"
-import { InstagramIcon } from "../assets/svg/instagram"
-import animationData from "../assets/lottie/homeAnimation.json"
-import Lottie from "react-lottie"
-import { useGifState } from "../hooks/useGifState"
-import { motion } from "framer-motion"
-
-import AnacTrem from "../assets/instagramImgs/anacTrem.jpeg"
-import EstacaoEspacial from "../assets/instagramImgs/estacaoEspacial.jpeg"
-import EstacaoEspacial2 from "../assets/instagramImgs/estacaoEspacial2.jpeg"
-import FogueteNoSol from "../assets/instagramImgs/fogueteNoSol.jpeg"
-import MulherComEspada from "../assets/instagramImgs/mulherComEspada.jpeg"
-import Tempo from "../assets/instagramImgs/tempo.jpeg"
-
-import CorazartAnimation from "../assets/video/corazartAnimation.mp4"
-
-import CorazartInstaLogo from "../assets/img/logoInsta.jpg"
-import { HeartIcon } from "../assets/svg/heart"
-import { CommentIcon } from "../assets/svg/comment"
-import { FavoriteFlagIcon } from "../assets/svg/favoriteFlag"
-
+import React, { Fragment, useRef, useState } from "react";
+import { InstagramIcon } from "../assets/svg/instagram";
+import instagramCards from "../assets/img/instagramcards.png";
+import Borboleta from "../assets/img/Borboleta.png";
+import Centrus from "../assets/img/Centrus.png";
+import Crt from "../assets/img/Crt.png";
+import Energisa from "../assets/img/EnergisaPrev.png";
+import Mema from "../assets/img/Mema.png";
+import { useGifState } from "../hooks/useGifState";
+import { motion } from "framer-motion";
+import CorazartAnimation from "../assets/video/corazartAnimation.mp4";
+import { Faq } from "../components/faq";
+import { TopButton } from "../components/TopButton";
+import { Play } from "phosphor-react";
+import { useEffect } from "react";
+import framefinal from "../assets/img/framefinal.png";
+import { usePlayButtonState } from "../hooks/usePlayButtonState";
 export const Home = () => {
-  const { gifFinished, setGifFinished } = useGifState()
+  const { gifFinished, setGifFinished } = useGifState();
+  const { playButtonIsVisible, setPlayButtonIsVisible } =
+    usePlayButtonState(true);
 
-  const defaultOptions = {
-    loop: false,
-    autoplay: true,
-    animationData: animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  }
-
-  const eventListeners = [
-    {
-      eventName: "complete",
-      callback: () => setGifFinished(true)
-    }
-  ]
+  const videoRef = useRef(null);
 
   const animation = {
     x: [-200, 100, 0],
@@ -45,105 +28,203 @@ export const Home = () => {
     transition: {
       type: "spring",
       stiffness: 260,
-      damping: 20
-    }
-  }
+      damping: 20,
+    },
+  };
 
-  const cardsImgs = [
-    {
-      img: AnacTrem
-    },
-    {
-      img: EstacaoEspacial
-    },
-    {
-      img: EstacaoEspacial2
-    },
-    {
-      img: FogueteNoSol
-    },
-    {
-      img: MulherComEspada
-    },
-    {
-      img: Tempo
-    },
-    {
-      img: FogueteNoSol
-    },
-    {
-      img: MulherComEspada
-    },
-    {
-      img: Tempo
-    }
-  ]
+  useEffect(() => {
+    if (gifFinished) setPlayButtonIsVisible(false);
+  });
+
+  const playButton = () => {
+    videoRef.current.play();
+    setPlayButtonIsVisible(false);
+  };
+
+  const skipVideo = () => {
+    const video = videoRef.current;
+    video.currentTime = video.duration;
+    video.play();
+    setPlayButtonIsVisible(false);
+    setGifFinished(true);
+  };
 
   return (
-    <main>
-      <section className="h-[100vh] w-full flex justify-start items-center px-4 lg:px-20 relative">
+    <main className="flex flex-wrap justify-center items-center w-full">
+      <section className="h-[100vh] w-full flex justify-center items-center relative bg-slate-600">
         <motion.a
           initial={{ x: -200, opacity: 0, rotate: "270deg" }}
           animate={gifFinished ? animation : ""}
-          className="group flex justify-center items-center absolute gap-2 cursor-pointer z-20 left-0"
+          className="group flex gap-2 cursor-pointer justify-center items-center  z-20 left-[-55px] absolute lg:left-2"
           href="https://www.instagram.com/corazart_/"
+          target="_blank"
         >
           <h4 className="font-montserrat text-white font-semibold text-3xl m-0 relative ease-in duration-200 group-hover:left-[-0.5rem] ">
             siga-nos
           </h4>
           <InstagramIcon />
         </motion.a>
-        <div className="w-full h-full absolute left-0 top-0">
-          <video onEnded={() => setGifFinished(true)} autoPlay>
-            <source src={CorazartAnimation} type="video/mp4" />
-          </video>
-          {/* <Lottie options={defaultOptions} eventListeners={eventListeners} /> */}
-          {/* <img src={CorazartGif} alt="CorazartGif" /> */}
+        <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center overflow-hidden">
+          {gifFinished ? (
+            <img src={framefinal} />
+          ) : (
+            <video
+              className="absolute h-full max-w-none xl:h-auto xl:w-full"
+              onEnded={() => setGifFinished(true)}
+              ref={videoRef}
+            >
+              <source src={CorazartAnimation} type="video/mp4" />
+            </video>
+          )}
         </div>
+        {playButtonIsVisible && (
+          <div className="flex flex-col justify-center items-center absolute w-auto gap-5">
+            <button className="text-white font-atari text-lg">
+              Aperte o botao para iniciar
+            </button>
+            <button
+              className="rounded-full  bg-[#41416f] p-16 border-2 border-white text-white"
+              onClick={() => playButton()}
+            >
+              <Play size={32} />
+            </button>
+            <button className="text-white" onClick={() => skipVideo()}>
+              pular
+            </button>
+          </div>
+        )}
       </section>
-      <section className="h-[70vh] w-full flex flex-nowrap justify-start items-center px-4 lg:pl-20 lg:pr-0 bg-gray_500 overflow-hidden">
-        <div className="w-full lg:w-3/5">
-          <h2 className="text-purple_700 text-6xl font-bold font-montserrat">
-            <i>
-              O Design é o primeiro <br /> estágio da paixão entre
+
+      {gifFinished && (
+        <Fragment>
+          <section className="w-full flex-col flex justify-start items-center bg-gray_500 overflow-hidden lg:pl-20 lg:pr-0 lg:flex-row">
+            <div className=" hidden w-full h-full lg:w-2/5 xxl:w-3/6 lg:order-2 lg:block">
+              <img
+                src={instagramCards}
+                alt="Cards do instagram com trabalhos do Corazart"
+                className="w-full h-full"
+              />
+            </div>
+            <div className="w-full px-4 py-10 lg:w-3/5  xxl:w-3/6 lg:order-1 lg:px-0">
+              <h2 className="text-purple_700 text-3xl lg:text-4xl xlg:text-5xl xxl:text-6xl font-bold font-montserrat">
+                <i>
+                  O Design é o primeiro <br /> estágio da paixão entre
+                  <br />
+                  <span className="font-light">
+                    seu consumidor e sua marca!
+                  </span>
+                </i>
+                <br />
+                <span className="font-light text-2xl lg:text-3xl  xlg:text-4xl">
+                  {" "}
+                  - Flavia Barbieri
+                </span>
+              </h2>
+            </div>
+          </section>
+          <section className="w-full bg-gradient-to-r from-purple_700 to-purple_400 flex flex-col items-start justify-center text-white px-4 py-10 lg:px-20">
+            <h4 className="text-3xl lg:text-4xl">Design:</h4>
+            <small className="text-lg block mb-7 font-light">
+              substantivo masculino
+            </small>
+            <p className="text-xl xlg:text-3xl">
+              capacidade de criar uma maior empatia com o público, tornar sua{" "}
               <br />
-              <span className="font-light">seu consumidor e sua marca!</span>
-            </i>
-            <br />
-            <span className="font-light text-4xl"> - Flavia Barbieri</span>
-          </h2>
-        </div>
-        <div className="w-full h-full lg:w-2/5 relative overflow-scroll border border-black">
-          <div className="w-full h-full lg:w-[60vw] lg:h-[100vh] absolute left-0">
-            <div className="w-full h-full flex justify-center items-center flex-wrap gap-8 ">
-              {cardsImgs.map(({ img }) => {
-                return (
-                  <div className="w-[325px] h-[425px] flex flex-col justify-center items-center px-2 bg-gray_100 rounded-lg shadow-lg shadow-black_100">
-                    <div className="w-full px-3 flex justify-start items-center py-3">
-                      <img
-                        src={CorazartInstaLogo}
-                        alt="corazartInstaLogo"
-                        className="w-10 h-10 rounded-full mr-2 border-[3px] border-red-600"
-                      />
-                      <span className="text-base font-bold m-0">corazart_</span>
+              comunicação mais clara, agregar valor e gerar soluções mais
+              eficientes, <br />
+              confiantes e esteticamente agradáveis.
+            </p>
+          </section>
+          <div className="w-full bg-fundoultimassecoes bg-no-repeat bg-covers h-full">
+            <section className="w-full flex justify-center items-center flex-col px-4 py-10 lg:px-20 lg:flex-row gap-3">
+              <div className="w-full  lg:w-3/5">
+                <b className="text-purple_700 text-2xl">
+                  Nosso design não é padronizado
+                </b>
+                <h2 className="bg-gradient-to-r from-purple_700 to-purple_400 bg-clip-text  text-transparent text-4xl font-light xlg:text-7xl xl:text-8xl">
+                  Ele é especial, <br className="hidden lg:block" />
+                  pois <br className="lg:hidden" /> cada projeto{" "}
+                  <br className="hidden lg:block" />
+                  são{" "}
+                  <b>
+                    {" "}
+                    novos sonhos <br className="hidden lg:block" /> se
+                    realizando{" "}
+                  </b>
+                </h2>
+              </div>
+              <div className="w-full lg:w-2/5">
+                <img src={Borboleta} alt="" className="w-full" />
+              </div>
+            </section>
+            <Faq />
+            {/* <section className="w-full flex justify-center items-center flex-col px-4 py-10 gap-3 lg:px-20 lg:flex-row lg:justify-between ">
+            <div className="w-full lg:w-5/7 flex justify-start items-center">
+              <img src={Lampada} alt="lampada" className="w-full" />
+            </div>
+            <div className="w-full lg:w-2/5 flex flex-col justify-between items-center gap-3 xl:gap-8">
+              <button className="cursor-default block font-bold text-white bg-gradient-to-r from-purple_700 to-purple_400 w-full rounded-md text-xl py-3 xl:text-6xl xl:h-[100px] xl:max-w-[467px] ">Planejar</button>
+              <button className="cursor-default block font-bold text-white bg-gradient-to-r from-purple_700 to-purple_400 w-full rounded-md text-xl py-3 xl:text-6xl xl:h-[100px] xl:max-w-[467px] ">Produzir</button>
+              <button className="cursor-default block font-bold text-white bg-gradient-to-r from-purple_700 to-purple_400 w-full rounded-md text-xl py-3 xl:text-6xl xl:h-[100px] xl:max-w-[467px] ">Posicionar</button>
+            </div>
+            
+          </section> */}
+            <section className="w-full flex justify-center items-stretch flex-col px-4 py-10 lg:px-20 lg:flex-row gap-3">
+              <div className="flex justify-center items-end gap-3 w-full lg:w-1/2">
+                <div className="w-2/3 aspect-square bg-purple_700 rounded-3xl flex justify-center items-center">
+                  <img
+                    src={Energisa}
+                    alt="Logo EnergisaPrev"
+                    className="w-3/4 object-contain"
+                  />
+                </div>
+
+                <div className="w-1/3 flex flex-col justify-between items-center h-full">
+                  <div className="w-full flex flex-col ">
+                    <div className="w-full flex gap-3 justify-start items-start">
+                      <div className="w-1/2 aspect-square bg-purple_500 rounded-xl"></div>
+                      <div className="w-1/2 aspect-square bg-transparent"></div>
                     </div>
-                    <img className="w-full h-[300px] object-cover rounded-lg" src={img} />
-                    <div className="w-full px-3 flex justify-between items-center py-5">
-                      <div className="flex justify-center items-center text-black gap-2">
-                        <span className="text-red-600">
-                          <HeartIcon />
-                        </span>
-                        <CommentIcon /> view all comment
-                      </div>
-                      <FavoriteFlagIcon />
+                    <div className="w-full flex gap-3 justify-start items-start">
+                      <div className="w-1/2 aspect-square bg-transparent"></div>
+                      <div className="w-1/4 aspect-square bg-purple_700 rounded-lg"></div>
                     </div>
                   </div>
-                )
-              })}
-            </div>
+
+                  <div className="w-full aspect-square bg-purple_600 rounded-2xl flex justify-center items-center">
+                    <img
+                      src={Centrus}
+                      alt="Logo Centrus"
+                      className="w-2/4 object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="flex gap-3 w-full lg:w-1/2">
+                <div className="w-5/12 flex justify-center items-center self-center">
+                  <div className="w-full bg-purple_300 aspect-square rounded-xl flex justify-center items-center">
+                    <img
+                      src={Mema}
+                      alt="Logo Mema"
+                      className="w-2/4 object-contain"
+                    />
+                  </div>
+                </div>
+                <div className="w-7/12 flex justify-center items-end self-end">
+                  <div className="w-full bg-purple_700 aspect-square rounded-3xl flex justify-center items-center">
+                    <img
+                      src={Crt}
+                      alt="Logo CRT"
+                      className="w-2/4  object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+            </section>
+            <TopButton />
           </div>
-        </div>
-      </section>
+        </Fragment>
+      )}
     </main>
-  )
-}
+  );
+};

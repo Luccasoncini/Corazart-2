@@ -4,14 +4,20 @@ module.exports = {
     screens: {
       sm: { min: "576px" },
       md: { min: "768px" },
-      lg: { min: "992px" },
+      lg: { min: "1024px" },
+      xlg: { min: "1280px" },
       xl: { min: "1400px" },
-      xxl: { min: "1900px" }
+      xxl: { min: "1800px" },
     },
     extend: {
       fontFamily: {
         inter: "Inter",
-        montserrat: "Montserrat"
+        montserrat: "Montserrat",
+        atari: "Atari",
+      },
+      backgroundImage: {
+        "footer-texture": "url('/src/assets/img/Fundofooter.png')",
+        fundoultimassecoes: "url('/src/assets/img/fundoultimassecoes.jpg')",
       },
       colors: {
         purple_900: "#704293",
@@ -26,10 +32,11 @@ module.exports = {
         gray_100: "#efefef",
         gray_300: "#919191",
         gray_500: "#CECDDB",
-        black_100: "#6c6c6cba"
-      }
-    }
+        gray_700: "#545454",
+        black_100: "#6c6c6cba",
+      },
+    },
   },
   variants: {},
-  plugins: []
-}
+  plugins: [],
+};

@@ -2,6 +2,11 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+@font-face {
+  font-family: Atari;
+  src: url("assets/fonts/AtariClassicChunky-PxXP.ttf") format("truetype");
+}
+
 .h-navigation {
   height: calc(100% - 75px);
 }
