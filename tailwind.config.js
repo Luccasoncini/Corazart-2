@@ -17,6 +17,7 @@ module.exports = {
       },
       backgroundImage: {
         "footer-texture": "url('/src/assets/img/Fundofooter.png')",
+        home: "url('/src/assets/img/fundo-home.jpg')",
         fundoultimassecoes: "url('/src/assets/img/fundoultimassecoes.jpg')",
       },
       colors: {

@@ -60,7 +60,7 @@ export const Header = () => {
 
   return (
     <header
-      className={`flex justify-between items-center absolute top-0 left-0 h-[75px] w-full px-4 z-30 lg:h-auto lg:py-5 lg:px-20
+      className={`flex justify-between items-center absolute top-0 left-0 h-[75px] w-full px-4 z-30 lg:h-auto lg:py-5 lg:px-10 xlg:px-20
       ${
         isHomePage
           ? isMenuOpened
@@ -69,7 +69,7 @@ export const Header = () => {
           : "bg-purple-900 relative"
       }`}
     >
-      <Link to="/home" className="w-[150px] lg:w-[235px]">
+      <Link to="/home" className="w-[150px] lg:w-[200px] xlg:w-[235px]">
         <motion.span
           initial={{ y: -200, opacity: 0 }}
           animate={gifFinished ? animation : ""}
@@ -79,7 +79,7 @@ export const Header = () => {
         </motion.span>
       </Link>
 
-      <div className="lg:w-[60%] lg:h-full lg:flex lg:justify-between lg:items-center">
+      <div className="lg:w-auto xlg:w-[60%] lg:h-full lg:flex lg:justify-between lg:items-center">
         <div
           className="flex justify-center items-center flex-col relative w-[17.5px] h-5 lg:hidden"
           onClick={onClickMenu}
@@ -109,15 +109,52 @@ export const Header = () => {
         <div
           className={
             isMenuOpened
-              ? "block fixed top-[75px]  w-full bg-purple-900 h-navigation right-0 ease-in duration-500 p-9 z-30 lg:relative lg:top-0 lg:right-0 lg:bg-transparent lg:h-full lg:p-0 lg:flex lg:justify-end lg:items-center "
-              : "fixed top-[75px] h-full w-full bg-purple-900 h-calc(100% - 50px) right-[-100vw] ease-in duration-500 p-9 z-30 lg:relative lg:top-0 lg:right-0 lg:bg-transparent lg:h-full lg:p-0 lg:flex lg:justify-end lg:items-center"
+              ? "block fixed w-full top-0  h-full bg-home bg-cover bg-no-repeat right-0 ease-in duration-500 p-9 z-30 lg:relative3 lg:right-0 lg:bg-transparent  lg:p-0 lg:flex lg:justify-end lg:items-center "
+              : "fixed h-full w-full bg-purple-900 right-[-100vw] ease-in duration-500 p-9 z-30 lg:relative lg:top-0 lg:right-0 lg:bg-transparent lg:h-full lg:p-0 lg:flex lg:justify-end lg:items-center"
           }
         >
+          <div className="flex justify-between items-center w-full mb-8 lg:hidden">
+            <Link to="/home" className="w-[150px] lg:w-[200px] xlg:w-[235px]">
+              <motion.span
+                initial={{ y: -200, opacity: 0 }}
+                animate={gifFinished ? animation : ""}
+                className="block"
+              >
+                <LogoCorazartIcon color="#fff" />
+              </motion.span>
+            </Link>
+            <div
+              className="flex justify-center items-center flex-col relative w-[17.5px] h-5 lg:hidden"
+              onClick={onClickMenu}
+            >
+              <span
+                className={
+                  isMenuOpened
+                    ? "w-full h-[2px] my-[2px] bg-white ease-in duration-500 absolute rotate-[135deg] lg:rotate-0 lg:relative"
+                    : "w-full h-[2px] my-[2px] bg-white ease-in duration-500"
+                }
+              ></span>
+              <span
+                className={
+                  isMenuOpened
+                    ? "w-full h-[2px] my-[2px] bg-white ease-in duration-500 hidden"
+                    : "w-full h-[2px] my-[2px] bg-white ease-in duration-500"
+                }
+              ></span>
+              <span
+                className={
+                  isMenuOpened
+                    ? "w-full h-[2px] my-[2px] bg-white ease-in duration-500 absolute rotate-[225deg] lg:rotate-0 lg:relative"
+                    : "w-full h-[2px] my-[2px] bg-white ease-in duration-500"
+                }
+              ></span>
+            </div>
+          </div>
           <nav className="relative h-full">
             <ul className="flex justify-start items-center flex-col gap-6 lg:flex-row lg:w-full lg:h-full">
               {menuLinks.map(({ texto, link }) => {
                 return (
-                  <Fragment>
+                  <Fragment key={link}>
                     {location.pathname !== link && (
                       <Fragment>
                         {link === "/contact" ? (

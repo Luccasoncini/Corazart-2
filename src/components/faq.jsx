@@ -175,7 +175,7 @@ export const Faq = () => {
       <h3 className="text-4xl font-bold text-purple-900 mb-3">
         Soluções disponíveis para você
       </h3>
-      <div className="grid gap-4 grid-cols-1 lg:grid-cols-4 w-full">
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3 xlg:grid-cols-4 w-full">
         {data.map((item, index) => {
           return (
             <div className="flex flex-col" key={index}>
@@ -187,14 +187,14 @@ export const Faq = () => {
                 }`}
                 onClick={() => toggleItem(index)}
               >
-                <h3 className="text-white text-center font-bold text-2xl">
+                <h3 className="text-white text-center font-bold text-2xl ">
                   {item.title}
                 </h3>
               </div>
               <div
                 className={`text-purple_900 text-justify overflow-hidden px-3 border-2 text-lg ${
                   item.isOpen
-                    ? "h-[250px] border-purple_900 ease-in duration-100 delay-100 rounded-b-2xl"
+                    ? "h-full border-purple_900 ease-in duration-100 delay-100 rounded-b-2xl pb-2"
                     : "h-0 border-transparent ease-in duration-100 "
                 }`}
               >

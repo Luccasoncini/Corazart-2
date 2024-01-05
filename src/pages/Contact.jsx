@@ -47,7 +47,7 @@ export const Contact = () => {
 
   return (
     <main className="w-full relative">
-      <section className="flex flex-wrap justify-center items-start ">
+      <section className="flex flex-wrap justify-center items-start lg:pb-8 xl:pb-0">
         <div className="flex flex-col justify-center items-start w-full mt-8 lg:mt-17 lg:w-1/2 px-4 lg:pl-20 lg:pr-0">
           <h3 className="text-purple-900 text-4xl font-bold text-center tracking-tighter w-full mb-8 lg:text-5xl lg:text-left">
             Tire seu projeto do papel
@@ -143,7 +143,7 @@ export const Contact = () => {
           <img
             src={instagramCards}
             alt="Cards do instagram com trabalhos do Corazart"
-            className="w-full h-full lg:w-[95.6%]"
+            className="w-full h-full lg:w-[94.6%]"
           />
         </div>
       </section>

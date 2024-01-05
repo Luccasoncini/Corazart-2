@@ -1,4 +1,5 @@
-import React, { Fragment, useRef, useState } from "react";
+import { Fragment, useRef, useEffect, useState } from "react";
+
 import { InstagramIcon } from "../assets/svg/instagram";
 import instagramCards from "../assets/img/instagramcards.png";
 import Borboleta from "../assets/img/Borboleta.png";
@@ -6,21 +7,50 @@ import Centrus from "../assets/img/Centrus.png";
 import Crt from "../assets/img/Crt.png";
 import Energisa from "../assets/img/EnergisaPrev.png";
 import Mema from "../assets/img/Mema.png";
-import { useGifState } from "../hooks/useGifState";
-import { motion } from "framer-motion";
+import framefinal from "../assets/img/framefinal.png";
 import CorazartAnimation from "../assets/video/corazartAnimation.mp4";
+
+import { motion } from "framer-motion";
+
 import { Faq } from "../components/faq";
 import { TopButton } from "../components/TopButton";
+
 import { Play } from "phosphor-react";
-import { useEffect } from "react";
-import framefinal from "../assets/img/framefinal.png";
+
 import { usePlayButtonState } from "../hooks/usePlayButtonState";
+import { useGifState } from "../hooks/useGifState";
+
 export const Home = () => {
   const { gifFinished, setGifFinished } = useGifState();
   const { playButtonIsVisible, setPlayButtonIsVisible } =
     usePlayButtonState(true);
 
   const videoRef = useRef(null);
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const verificaTipoDispositivo = () => {
+      const mediaQuery = window.matchMedia("(max-width: 768px)");
+      setIsMobile(mediaQuery.matches);
+    };
+
+    window.addEventListener("resize", verificaTipoDispositivo);
+
+    return () => {
+      window.removeEventListener("resize", verificaTipoDispositivo);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      setPlayButtonIsVisible(false);
+      setGifFinished(true);
+    }
+  }, [isMobile]);
 
   const animation = {
     x: [-200, 100, 0],
@@ -51,7 +81,7 @@ export const Home = () => {
 
   return (
     <main className="flex flex-wrap justify-center items-center w-full">
-      <section className="h-[100vh] w-full flex justify-center items-center relative bg-slate-600">
+      <section className="h-[100vh] w-full flex justify-center items-center relative bg-slate-600 hidden lg:flex">
         <motion.a
           initial={{ x: -200, opacity: 0, rotate: "270deg" }}
           animate={gifFinished ? animation : ""}
@@ -66,10 +96,10 @@ export const Home = () => {
         </motion.a>
         <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center overflow-hidden">
           {gifFinished ? (
-            <img src={framefinal} />
+            <img src={framefinal} className="lg:max-w-[145%]" />
           ) : (
             <video
-              className="absolute h-full max-w-none xl:h-auto xl:w-full"
+              className="absolute h-auto max-w-none xl:h-auto xl:w-full"
               onEnded={() => setGifFinished(true)}
               ref={videoRef}
             >
@@ -93,6 +123,15 @@ export const Home = () => {
             </button>
           </div>
         )}
+      </section>
+
+      <section className="h-[100vh] w-full flex justify-center items-center relative lg:hidden">
+        <div className="w-full h-full absolute left-0 top-0 bg-home bg-cover bg-no-repeat flex justify-start items-center">
+          <h3 className="text-white font-bold text-6xl ps-12">
+            Olá, <br />
+            somos os <br /> engenheiros <br /> do seu <br /> projeto!
+          </h3>
+        </div>
       </section>
 
       {gifFinished && (
@@ -135,7 +174,7 @@ export const Home = () => {
               confiantes e esteticamente agradáveis.
             </p>
           </section>
-          <div className="w-full bg-fundoultimassecoes bg-no-repeat bg-covers h-full">
+          <div className="w-full bg-fundoultimassecoes bg-no-repeat bg-cover h-full">
             <section className="w-full flex justify-center items-center flex-col px-4 py-10 lg:px-20 lg:flex-row gap-3">
               <div className="w-full  lg:w-3/5">
                 <b className="text-purple_700 text-2xl">
