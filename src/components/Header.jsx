@@ -69,7 +69,10 @@ export const Header = () => {
           : "bg-purple-900 relative"
       }`}
     >
-      <Link to="/home" className="w-[150px] lg:w-[200px] xlg:w-[235px]">
+      <Link
+        to="/home"
+        className="ps-8 w-[150px] lg:ps-0 lg:w-[200px] xlg:w-[235px]"
+      >
         <motion.span
           initial={{ y: -200, opacity: 0 }}
           animate={gifFinished ? animation : ""}

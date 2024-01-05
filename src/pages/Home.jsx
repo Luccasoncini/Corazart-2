@@ -3,12 +3,12 @@ import { Fragment, useRef, useEffect, useState } from "react";
 import { InstagramIcon } from "../assets/svg/instagram";
 import instagramCards from "../assets/img/instagramcards.png";
 import Borboleta from "../assets/img/Borboleta.png";
-import Centrus from "../assets/img/Centrus.png";
 import Crt from "../assets/img/Crt.png";
-import Mema from "../assets/img/Mema.png";
 import Performance from "../assets/img/Performance.png";
 import framefinal from "../assets/img/framefinal.png";
 import Festpan from "../assets/img/festpan.png";
+import Nestle from "../assets/img/nestle.png";
+
 import CorazartAnimation from "../assets/video/corazartAnimation.mp4";
 
 import { motion } from "framer-motion";
@@ -20,7 +20,6 @@ import { Play } from "phosphor-react";
 
 import { usePlayButtonState } from "../hooks/usePlayButtonState";
 import { useGifState } from "../hooks/useGifState";
-import NestleIcon from "../assets/svg/nestle";
 
 export const Home = () => {
   const { gifFinished, setGifFinished } = useGifState();
@@ -102,7 +101,10 @@ export const Home = () => {
         </motion.a>
         <div className="w-full h-full absolute left-0 top-0 flex justify-center items-center overflow-hidden">
           {gifFinished ? (
-            <img src={framefinal} className="lg:max-w-[145%]" />
+            <img
+              src={framefinal}
+              className="lg:max-w-[145%] xxl:max-w-none xxl:w-full"
+            />
           ) : (
             <video
               className="absolute h-auto max-w-none xl:h-auto xl:w-full"
@@ -236,7 +238,11 @@ export const Home = () => {
                   </div>
 
                   <div className="w-full aspect-square bg-purple_600 rounded-2xl flex justify-center items-center">
-                    <NestleIcon />
+                    <img
+                      src={Nestle}
+                      alt="Performance"
+                      className="w-3/4 object-contain"
+                    />
                   </div>
                 </div>
               </div>
