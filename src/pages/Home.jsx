@@ -30,6 +30,10 @@ export const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    document.title = "Coraz`art | Home";
+  });
+
+  useEffect(() => {
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     setIsMobile(mediaQuery.matches);
 

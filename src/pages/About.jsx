@@ -8,6 +8,10 @@ export const About = () => {
   const { gifFinished, setGifFinished } = useGifState();
 
   useEffect(() => {
+    document.title = "Coraz`art | Sobre";
+  });
+
+  useEffect(() => {
     setGifFinished(true);
   }, []);
 

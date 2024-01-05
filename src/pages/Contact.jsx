@@ -18,6 +18,10 @@ export const Contact = () => {
     setGifFinished(true);
   }, []);
 
+  useEffect(() => {
+    document.title = "Coraz`art | Contato";
+  });
+
   async function sendEmail(e) {
     e.preventDefault();
 
