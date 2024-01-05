@@ -26,7 +26,7 @@ export const About = () => {
         </div>
       </section>
 
-      <section className="flex flex-wrap justify-center items-start px-4 lg:px-20 lg:pb-8 xl:pb-4">
+      <section className="flex flex-wrap justify-center items-start px-4 lg:px-20 pb-8 xl:pb-4">
         <div className="flex justify-center items-center w-full mb-5 lg:w-1/2">
           <img
             src={Borboleta}

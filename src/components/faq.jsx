@@ -16,15 +16,13 @@ export const Faq = () => {
       ),
     },
     {
-      title: "Gestão de Redes",
+      title: "Produção de comerciais",
       text: (
         <p className="mt-3">
-          <b>Potencialize sua presença online</b>, alcance seu público-alvo de
-          forma estratégica, crie conexões genuínas com seus clientes, fortaleça
-          sua marca, monitore tendências e obtenha insights valiosos. A gestão
-          de redes sociais impulsiona seu negócio,
-          <b>aumentando sua visibilidade e oportunidades</b> de crescimento no
-          mundo digital.
+          Entregamos <b>comerciais incríveis, criativos e impactantes</b>,
+          garantindo qualidade excepcional e resultados impressionantes.{" "}
+          <b>Nossa abordagem inovadora e paixão pela excelência</b> nos tornam a
+          escolha ideal para campanhas publicitárias de sucesso.
         </p>
       ),
       isOpen: false,
@@ -43,70 +41,61 @@ export const Faq = () => {
       isOpen: false,
     },
     {
-      title: "Sistemas",
+      title: "Diagramações",
       text: (
         <p className="mt-3">
-          <b>Eleve sua empresa para o próximo nível no mundo digital</b>,
-          ofereça uma vitrine online 24 horas por dia, 7 dias por semana,
-          alcance potenciais clientes em qualquer lugar, fortaleça sua
-          credibilidade, transmita profissionalismo e amplie suas oportunidades
-          de negócio. Ter um site é essencial para o sucesso na era digital.
+          Criamos{" "}
+          <b>diagramações excepcionais para revistas, jornais e livros</b>,
+          combinando criatividade, organização e atenção aos detalhes. Nossos
+          layouts são cuidadosamente projetados para destacar o conteúdo de
+          forma atraente e informativa, garantindo uma experiência visual
+          impactante para os leitores.
         </p>
       ),
       isOpen: false,
     },
     {
-      title: "E-commerce",
+      title: "Comunicação Visual",
       text: (
         <p className="mt-3">
-          Um <b>e-commerce</b> próprio é fundamental para fortalecer sua marca,
-          expandir alcance e gerar lucros. Oferece controle total sobre a
-          experiência do cliente, dados valiosos e flexibilidade para se adaptar
-          às necessidades em constante evolução do mercado. É o futuro dos
-          negócios online.
+          Criamos comunicação visual impactante, abrangendo{" "}
+          <b>letreiros, banners, comunicação em pontos de venda e online</b>.
+          Nossos designs personalizados garantem uma mensagem eficaz e
+          memorável, integrando elementos visuais e estratégias de marketing
+          para envolver o público em qualquer ambiente.
         </p>
       ),
       isOpen: false,
     },
     {
-      title: "Google Meu Negócio",
+      title: "Manipulações",
       text: (
         <p className="mt-3">
-          O <b>Google Meu Negócio</b> é essencial para empresas locais. Torna
-          sua empresa visível no Google Maps e nas buscas locais,{" "}
+          Realizamos manipulações de imagem de alta qualidade, atendendo a
+          diversas necessidades criativas e comerciais. Nossa equipe utiliza
+          técnicas avançadas para{" "}
+          <b>aprimorar, retocar e transformar imagens</b>, garantindo resultados
+          impressionantes. Seja para publicidade, design editorial ou conteúdo
+          digital, nossa experiência garante a entrega de trabalhos visualmente
+          impactantes e autênticos.
+        </p>
+      ),
+      isOpen: false,
+    },
+    {
+      title: "Rótulos e Embalagens",
+      text: (
+        <p className="mt-3">
+          Nossa equipe é especializada na criação de rótulos e embalagens que se
+          destacam no mercado. Combinamos design inovador, informações claras e
+          apelo visual para garantir que cada produto tenha uma embalagem
+          atraente e funcional.{" "}
           <b>
-            aumentando a visibilidade, gerando confiança e direcionando o
-            tráfego para sua loja física ou site.
-          </b>
-          É uma ferramenta poderosa para aquisição de clientes locais.
-        </p>
-      ),
-      isOpen: false,
-    },
-    {
-      title: "Anúncios Online",
-      text: (
-        <p className="mt-3">
-          Anúncios online, como Google Ads e Meta Ads (anteriormente Facebook
-          Ads), são fundamentais para alcançar públicos-alvo específicos. Eles
-          oferecem segmentação precisa, maximizam o ROI e
-          <b> aumentam a visibilidade da marca. </b>Essas plataformas permitem
-          mensuração detalhada, otimização contínua e são essenciais para o
-          sucesso do marketing digital.
-        </p>
-      ),
-      isOpen: false,
-    },
-    {
-      title: "Análise de SEO",
-      text: (
-        <p className="mt-3">
-          SEO (Search Engine Optimization)
-          <b>é a espinha dorsal do marketing digital</b>. Ele melhora o ranking
-          do seu site nos motores de busca, aumenta a visibilidade orgânica,
-          gera tráfego de alta qualidade e constrói autoridade online. Uma
-          estratégia de SEO bem executada é crucial para o sucesso a longo prazo
-          na web.
+            Levamos em consideração a identidade da marca, as regulamentações do
+            setor e as preferências do consumidor
+          </b>{" "}
+          para criar rótulos e embalagens que se destacam nas prateleiras e
+          comunicam efetivamente os atributos do produto.
         </p>
       ),
       isOpen: false,
@@ -126,41 +115,16 @@ export const Faq = () => {
       isOpen: false,
     },
     {
-      title: "Cobertura de Eventos",
+      title: "Algo Surpreendente",
       text: (
         <p className="mt-3">
-          Cobrir um evento é fundamental para documentar momentos
-          significativos, compartilhar informações em tempo real e criar
-          conteúdo autêntico. Isso fortalece a presença online, envolve a
-          audiência e oferece oportunidades valiosas de networking e branding.
+          Nós não nos limitamos a criação de apenas categorias, somos muito mais
+          criativos do que você possa imaginar. Teve ideia de algo inovador?
+          Conte conosco que vamos adorar fazer parte da sua história.
         </p>
       ),
       isOpen: false,
-    },
-    {
-      title: "Captação",
-      text: (
-        <p className="mt-3">
-          Nós também posssuímos uma equipe especializada em captação e gravação
-          de imagens/videos, assim conseguimos entregar qualidade e
-          originalidade em nossos serviços, assim você poderá criar videos
-          intitucionais, reels, e muito mais.
-        </p>
-      ),
-      isOpen: false,
-    },
-    {
-      title: "Jornalismo",
-      text: (
-        <p className="mt-3">
-          O jornalismo desempenha um papel crucial na publicidade, trazendo
-          credibilidade e autenticidade às mensagens publicitárias. O uso de
-          princípios jornalísticos, como apuração rigorosa e storytelling,
-          aumenta a confiança do público, tornando as campanhas de marketing
-          mais persuasivas e eficazes.
-        </p>
-      ),
-      isOpen: false,
+      isOrange: true,
     },
   ]);
 
@@ -172,35 +136,63 @@ export const Faq = () => {
 
   return (
     <section className="w-full flex justify-center items-center flex-col px-4 py-10 lg:px-20 gap-3">
-      <h3 className="text-4xl font-bold text-purple-900 mb-3">
+      <h3 className="text-4xl text-center font-bold text-purple-900 mb-3">
         Soluções disponíveis para você
       </h3>
-      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3 xlg:grid-cols-4 w-full">
+      <div className="grid gap-4 grid-cols-1 lg:grid-cols-3  w-full">
         {data.map((item, index) => {
           return (
-            <div className="flex flex-col" key={index}>
-              <div
-                className={`bg-purple-900 w-full py-4 cursor-pointer  ${
-                  item.isOpen
-                    ? "rounded-t-2xl ease-in duration-100"
-                    : "rounded-2xl ease-in duration-100 delay-100"
-                }`}
-                onClick={() => toggleItem(index)}
-              >
-                <h3 className="text-white text-center font-bold text-2xl ">
-                  {item.title}
-                </h3>
-              </div>
-              <div
-                className={`text-purple_900 text-justify overflow-hidden px-3 border-2 text-lg ${
-                  item.isOpen
-                    ? "h-full border-purple_900 ease-in duration-100 delay-100 rounded-b-2xl pb-2"
-                    : "h-0 border-transparent ease-in duration-100 "
-                }`}
-              >
-                {item.text}
-              </div>
-            </div>
+            <Fragment>
+              {item.isOrange ? (
+                <div className="flex flex-col" key={index}>
+                  <div
+                    className={`bg-orange-600 w-full py-4 cursor-pointer  ${
+                      item.isOpen
+                        ? "rounded-t-2xl ease-in duration-100"
+                        : "rounded-2xl ease-in duration-100 delay-100"
+                    }`}
+                    onClick={() => toggleItem(index)}
+                  >
+                    <h3 className="text-white text-center font-bold text-2xl ">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div
+                    className={`text-orange-600 text-justify overflow-hidden px-3 border-2 text-lg ${
+                      item.isOpen
+                        ? "h-full border-orange-600 ease-in duration-100 delay-100 rounded-b-2xl pb-2"
+                        : "h-0 border-transparent ease-in duration-100 "
+                    }`}
+                  >
+                    {item.text}
+                  </div>
+                </div>
+              ) : (
+                <div className="flex flex-col" key={index}>
+                  <div
+                    className={`bg-purple-900 w-full py-4 cursor-pointer  ${
+                      item.isOpen
+                        ? "rounded-t-2xl ease-in duration-100"
+                        : "rounded-2xl ease-in duration-100 delay-100"
+                    }`}
+                    onClick={() => toggleItem(index)}
+                  >
+                    <h3 className="text-white text-center font-bold text-2xl ">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <div
+                    className={`text-purple_900 text-justify overflow-hidden px-3 border-2 text-lg ${
+                      item.isOpen
+                        ? "h-full border-purple_900 ease-in duration-100 delay-100 rounded-b-2xl pb-2"
+                        : "h-0 border-transparent ease-in duration-100 "
+                    }`}
+                  >
+                    {item.text}
+                  </div>
+                </div>
+              )}
+            </Fragment>
           );
         })}
       </div>

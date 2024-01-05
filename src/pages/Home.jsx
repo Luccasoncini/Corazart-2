@@ -5,9 +5,10 @@ import instagramCards from "../assets/img/instagramcards.png";
 import Borboleta from "../assets/img/Borboleta.png";
 import Centrus from "../assets/img/Centrus.png";
 import Crt from "../assets/img/Crt.png";
-import Energisa from "../assets/img/EnergisaPrev.png";
 import Mema from "../assets/img/Mema.png";
+import Performance from "../assets/img/Performance.png";
 import framefinal from "../assets/img/framefinal.png";
+import Festpan from "../assets/img/festpan.png";
 import CorazartAnimation from "../assets/video/corazartAnimation.mp4";
 
 import { motion } from "framer-motion";
@@ -19,6 +20,7 @@ import { Play } from "phosphor-react";
 
 import { usePlayButtonState } from "../hooks/usePlayButtonState";
 import { useGifState } from "../hooks/useGifState";
+import NestleIcon from "../assets/svg/nestle";
 
 export const Home = () => {
   const { gifFinished, setGifFinished } = useGifState();
@@ -166,21 +168,20 @@ export const Home = () => {
             </div>
           </section>
           <section className="w-full bg-gradient-to-r from-purple_700 to-purple_400 flex flex-col items-start justify-center text-white px-4 py-10 lg:px-20">
-            <h4 className="text-3xl lg:text-4xl">Design:</h4>
+            <h4 className="text-3xl lg:text-4xl">Coraz'art:</h4>
             <small className="text-lg block mb-7 font-light">
-              substantivo masculino
+              substantivo:
             </small>
             <p className="text-xl xlg:text-3xl">
-              capacidade de criar uma maior empatia com o público, tornar sua{" "}
-              <br />
-              comunicação mais clara, agregar valor e gerar soluções mais
-              eficientes, <br />
-              confiantes e esteticamente agradáveis.
+              uma expressão que denota imaginação, inovação e excelência na
+              criação. Refere-se a um grupo ou entidade que se destaca pela sua
+              capacidade de trazer emoções, originalidade e habilidade criativa
+              para seus projetos e atividades.
             </p>
           </section>
           <div className="w-full bg-fundoultimassecoes bg-no-repeat bg-cover h-full">
             <section className="w-full flex justify-center items-center flex-col px-4 py-10 lg:px-20 lg:flex-row gap-3">
-              <div className="w-full  lg:w-3/5">
+              <div className="w-full hidden lg:block lg:w-3/5">
                 <b className="text-purple_700 text-2xl">
                   Nosso design não é padronizado
                 </b>
@@ -216,9 +217,9 @@ export const Home = () => {
               <div className="flex justify-center items-end gap-3 w-full lg:w-1/2">
                 <div className="w-2/3 aspect-square bg-purple_700 rounded-3xl flex justify-center items-center">
                   <img
-                    src={Energisa}
-                    alt="Logo EnergisaPrev"
-                    className="w-3/4 object-contain"
+                    src={Festpan}
+                    alt="Logo Festpan"
+                    className="w-2/4 object-contain"
                   />
                 </div>
 
@@ -235,11 +236,7 @@ export const Home = () => {
                   </div>
 
                   <div className="w-full aspect-square bg-purple_600 rounded-2xl flex justify-center items-center">
-                    <img
-                      src={Centrus}
-                      alt="Logo Centrus"
-                      className="w-2/4 object-contain"
-                    />
+                    <NestleIcon />
                   </div>
                 </div>
               </div>
@@ -247,9 +244,9 @@ export const Home = () => {
                 <div className="w-5/12 flex justify-center items-center self-center">
                   <div className="w-full bg-purple_300 aspect-square rounded-xl flex justify-center items-center">
                     <img
-                      src={Mema}
-                      alt="Logo Mema"
-                      className="w-2/4 object-contain"
+                      src={Performance}
+                      alt="Performance"
+                      className="w-3/4 object-contain"
                     />
                   </div>
                 </div>
