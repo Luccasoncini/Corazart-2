@@ -101,7 +101,7 @@ export const Faq = () => {
       isOpen: false,
     },
     {
-      title: "Montion/Video",
+      title: "Motion/Video",
       text: (
         <p className="mt-3">
           O conteúdo de vídeo e motion é cativante e altamente envolvente. Ele
