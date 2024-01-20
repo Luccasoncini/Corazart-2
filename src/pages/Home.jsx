@@ -135,7 +135,7 @@ export const Home = () => {
 
       <section className="h-[100vh] w-full flex justify-center items-center relative lg:hidden">
         <div className="w-full h-full absolute left-0 top-0 bg-home bg-cover bg-no-repeat flex justify-start items-center">
-          <h3 className="text-white font-bold text-6xl ps-12">
+          <h3 className="text-white font-bold text-4xl lg:text-6xl ps-12">
             Olá, <br />
             somos os <br /> engenheiros <br /> do seu <br /> projeto!
           </h3>
